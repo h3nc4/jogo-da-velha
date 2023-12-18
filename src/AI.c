@@ -34,19 +34,21 @@
  */
 int minimax(int jogador)
 {
-    int vencedor = vitoria(),                      // verifica se há um vencedor
-        jogada = -1, decisao, melhor_decisao = -2; // melhor_decisao = -2 para que o primeiro valor seja maior que ele
-    if (vencedor)                                  // se houver um vencedor, retorna o jogador atual
+    int vencedor = vitoria(), // verifica se há um vencedor
+        jogada = -1, // jogada = -1 para que qualquer local a sobrescreva
+        decisao, // decisao = resultado da função minimax
+        melhor_decisao = -2; // melhor_decisao = -2 para que o primeiro valor o sobrescreva
+    if (vencedor) // se houver um vencedor, retorna o jogador atual
         return vencedor * jogador;
     for (int i = 0; i < 9; i++) // percorre o tabuleiro
-        if (!tabuleiro[i])      // se a posição estiver vazia
+        if (!tabuleiro[i]) // se a posição estiver vazia
         {
-            tabuleiro[i] = jogador;       // preenche a posição com o jogador atual
+            tabuleiro[i] = jogador; // preenche a posição com o jogador atual
             decisao = -minimax(-jogador); // chama a função minimax com o jogador oposto ao atual
             if (decisao > melhor_decisao) // se o resultado for maior que a saída
             {
                 melhor_decisao = decisao; // a saída se torna o resultado
-                jogada = i;               // a melhor jogada se torna a posição atual
+                jogada = i; // a melhor jogada se torna a posição atual
             }
             tabuleiro[i] = 0; // limpa a posição atual
         }
@@ -63,17 +65,17 @@ int jogada_AI(void)
 {
     int jogada = -1, melhor_decisao = -2, decisao;
     for (int i = 0; i < 9; i++) // percorre o tabuleiro
-        if (!tabuleiro[i])      // se a posição estiver vazia
+        if (!tabuleiro[i]) // se a posição não tiver valor
         {
-            tabuleiro[i] = 1;             // 1 = AI
-            decisao = -minimax(-1);       // -1 = jogador
-            tabuleiro[i] = 0;             // 0 = vazio
+            tabuleiro[i] = AI; // preenche a posição com o jogador atual
+            decisao = -minimax(JOGADOR); // chama a função minimax com o jogador oposto da AI
+            tabuleiro[i] = 0; // limpa a posição atual
             if (decisao > melhor_decisao) // se a jogada for melhor que as anteriores
             {
                 melhor_decisao = decisao; // a saída se torna o resultado
-                jogada = i;               // a melhor jogada se torna a posição atual
+                jogada = i; // a melhor jogada se torna a posição atual
             }
         }
-    tabuleiro[jogada] = 1;
+    tabuleiro[jogada] = AI;
     return avalia_tabuleiro();
 }

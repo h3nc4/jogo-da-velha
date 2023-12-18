@@ -36,6 +36,10 @@
 #define CLEAR "clear"
 #endif
 
+// valores dos jogadores
+#define JOGADOR -1
+#define AI 1
+
 // tabuleiro do jogo
 extern int *tabuleiro;
 

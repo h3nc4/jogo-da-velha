@@ -71,12 +71,12 @@ int main(void)
     while (1)
     {
         for (int i = 0; i < 9; i++)
-            tabuleiro[i] = 0; // limpa o tabuleiro
+            tabuleiro[i] = 0; // inicia o tabuleiro
         int vencedor = jogo(inicio++ % 2); // 0 = jogador começa, 1 = AI começa
         print_tabuleiro();
-        printf(vencedor == 9   ? "\n Empate! Nos vemos da proxima vez.\n\n" //
-               : vencedor == 1 ? "\n Eu ganhei!\n\n"                        //
-                               : "\n Impressionante, voce me derrotou\n\n"  //
+        printf(vencedor == 9    ? "\n Empate! Nos vemos da proxima vez.\n\n" //
+               : vencedor == AI ? "\n Eu ganhei!\n\n"                        //
+                                : "\n Impressionante, voce me derrotou\n\n"  //
         );
         novo_jogo();
     }

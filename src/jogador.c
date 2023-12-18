@@ -47,10 +47,10 @@ void print_tabuleiro(void)
         }
         switch (tabuleiro[i])
         {
-        case -1:
+        case JOGADOR:
             printf(" X ");
             break;
-        case 1:
+        case AI:
             printf(" O ");
             break;
         default:
@@ -89,8 +89,8 @@ int jogada_pessoa(void)
         printf("debug: %d\n", !tabuleiro[jogada - 1]);
         if (jogada >= 1 && jogada <= 9 && !tabuleiro[jogada - 1]) // verifica se a jogada é válida
         {
-            tabuleiro[jogada - 1] = -1; // -1 = jogador
-            break;                      // sai do loop
+            tabuleiro[jogada - 1] = JOGADOR; // realiza a jogada
+            break; // sai do loop
         }
         printf(" Tentativa invalida. Qual a sua opcao? ");
     }
