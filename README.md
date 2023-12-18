@@ -2,46 +2,38 @@
 
 This is a Tic-Tac-Toe game implementation with an artificial intelligence player written in C using the mini-max algorithm. The game allows a player to play against the AI, where the player always starts first and plays as X.
 
-## Requirements
-
-To run this game, you will need to have a C compiler installed on your computer.
-
 ## How to Play
 
-1. Clone the repo:
+### Clone the repo
 
-    ```bash
-    git clone https://github.com/henrish0/jogo-da-velha.git
-    ```
+```bash
+git clone https://github.com/henrish0/jogo-da-velha.git
+```
 
-2. Navigate to the code:
+### Build the project
 
-    ```bash
-    cd jogo-da-velha/code
-    ```
+```bash
+cd jogo-da-velha/
+./scripts/build.sh
+```
 
-3. Compile the code:
+Run the game
 
-    ```bash
-    gcc velha.c -o velha
-    ```
+```bash
+./velha
+```
 
-4. Run the game:
-
-    ```bash
-    velha
-    ```
-
-Or you can also see releases for the exe file
+You can also see **[releases](https://github.com/henrish0/jogo-da-velha/releases)** for the compiled Windows version.
 
 ## Game Rules
 
 - The game is played on a 3x3 grid.
-- The player always starts first and plays as X.
+- The player starts first and plays as X.
 - The AI plays as O.
 - Players take turns placing their mark on an empty cell in the grid.
 - The first player to get three of their marks in a row (horizontally, vertically, or diagonally) wins the game.
 - If all cells are filled and no player has won, the game is a tie.
+- The starting player alternates between games, so the AI plays next.
 
 ## How the AI Works
 
